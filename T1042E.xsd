@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:baseForm="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+        xmlns:meta="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+        xmlns:tns="https://soap.api.nav.gov.hu/definitions/model/2.0/T1042E/1.0"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        targetNamespace="https://soap.api.nav.gov.hu/definitions/model/2.0/T1042E/1.0">
+   <import namespace="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+           schemaLocation="form_xsd_metaschema.xsd"/>
+   <import namespace="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+           schemaLocation="baseForm.xsd"/>
+   <element name="Doc_T1042E"
+            type="tns:Doc_T1042E_Type"
+            meta:metaType="DocMetaType">
+      <annotation>
+         <documentation>Bejelentő és változásbejelentő lap az egyszerűsített foglalkoztatásra irányuló jogviszony adatairól</documentation>
+      </annotation>
+      <xs:unique name="uniqueFileId_Attachment_1">
+         <xs:selector xpath="Form_T1042E/Attachment_1"/>
+         <xs:field xpath="fileId"/>
+      </xs:unique>
+   </element>
+   <complexType name="Doc_T1042E_Type">
+      <annotation>
+         <documentation>A teljes bizonylat szerkezetet leíró típus</documentation>
+      </annotation>
+      <sequence>
+         <element name="Form_T1042E"
+                  type="tns:Form_T1042E_Type"
+                  minOccurs="1"
+                  maxOccurs="1"
+                  meta:metaType="FormMetaType">
+            <annotation>
+               <documentation>T1042E részbizonylat</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <simpleType name="Enum_T1042E_0BXXXXD0005AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="U">
+            <annotation>
+               <documentation>U=új munkaviszony bejelentése vagy a korábbi munkaviszony módosítása (javítása)</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="T">
+            <annotation>
+               <documentation>T=munkanapok visszavonása (törlése)</documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+   </simpleType>
+   <simpleType name="Enum_T1042E_0BXXXXD0008AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="03">
+            <annotation>
+               <documentation>03=Mezőgazdasági idénymunka</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="05">
+            <annotation>
+               <documentation>05=Turisztikai idénymunka</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="06">
+            <annotation>
+               <documentation>06=Alkalmi munka</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="07">
+            <annotation>
+               <documentation>07=Filmipari statiszta</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value=""/>
+      </restriction>
+   </simpleType>
+   <complexType name="Form_T1042E_Type">
+      <annotation>
+         <documentation>A teljes nyomtatvány T1042E részbiztonylatának szerkezetét leíró típus.</documentation>
+      </annotation>
+      <sequence>
+         <element name="Block_120002"
+                  type="tns:Block_T1042E_120002_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>AZONOSÍTÓ ADATOK</documentation>
+            </annotation>
+         </element>
+         <element name="Block_120006"
+                  type="tns:Block_T1042E_120006_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Egyszerűsített foglalkoztatás bejelentése, visszavonása, törlése</documentation>
+            </annotation>
+         </element>
+         <element name="Attachment_1"
+                  type="baseForm:AttachmentType"
+                  minOccurs="0"
+                  maxOccurs="unbounded"
+                  meta:metaType="AttachmentMetaType">
+            <annotation>
+               <documentation>T1042E; File Extensions:DOC;PDF;ODT;ZIP;RAR;BMP;JPG;TIF</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Block_T1042E_120002_Type">
+      <annotation>
+         <documentation>AZONOSÍTÓ ADATOK</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120003"
+                  type="tns:FieldGroup_T1042E_120003_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Foglalkoztató adatai</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Block_T1042E_120006_Type">
+      <annotation>
+         <documentation>Egyszerűsített foglalkoztatás bejelentése, visszavonása, törlése</documentation>
+      </annotation>
+      <all>
+         <element name="Chain_120013"
+                  type="tns:Chain_T1042E_120013_Type"
+                  minOccurs="0"
+                  meta:metaType="ChainMetaType">
+            <annotation>
+               <documentation>A foglalkoztatott azonosító adatai</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Chain_T1042E_120013_Type">
+      <annotation>
+         <documentation>A foglalkoztatott azonosító adatai</documentation>
+      </annotation>
+      <sequence>
+         <element name="Chain_elem" minOccurs="0" maxOccurs="999">
+            <annotation>
+               <documentation>Lánc ismétlődő elemei</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element name="FieldGroup_120014"
+                           type="tns:FieldGroup_T1042E_120014_Type"
+                           minOccurs="1"
+                           meta:metaType="FieldGroupMetaType">
+                     <annotation>
+                        <documentation>A foglalkoztatott azonosító adatai</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="FieldGroup_T1042E_120003_Type">
+      <annotation>
+         <documentation>Foglalkoztató adatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001C001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A foglalkoztató adószáma: (FŐ_fogl_adószám)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="11"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C005A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A foglalkoztató adóazonosító jele: (FŐ_fogl_adóazon)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_T1042E_120014_Type">
+      <annotation>
+         <documentation>A foglalkoztatott azonosító adatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0BXXXXC0001AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A FOGLALKOZTATOTT AZONOSÍTÓ ADATAI ¦ A foglalkoztatott neve: (P23_fogl_név)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="50"/>
+                  <pattern value="[^0-9]*[^0-9\s][^0-9]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0BXXXXC0002AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A FOGLALKOZTATOTT AZONOSÍTÓ ADATAI ¦ A foglalkoztatott adóazonosító jele: (P23_fogl_adóazon)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0BXXXXC0003BA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A FOGLALKOZTATOTT AZONOSÍTÓ ADATAI ¦ A foglalkoztatott tajszáma: (P23_fogl_tajszám)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="9"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0BXXXXC0004AA"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A FOGLALKOZTATOTT AZONOSÍTÓ ADATAI ¦ A foglalkoztatott az Efo. tv. 2. § 6. pontja szerinti tagállamban vagy egyezményben részes másik államban biztosítással járó jogviszonnyal rendelkezik (ha igen, jelölje X-szel!): (P23_más_állam_jv)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0BXXXXD0005AA"
+                  minOccurs="0"
+                  type="tns:Enum_T1042E_0BXXXXD0005AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ Az egyszerűsített foglalkoztatás (EFO) bejelentésére vonatkozó tájékoztatás: 1. Új egyszerűsített foglalkoztatásra irányuló jogviszonyt a foglalkoztatás napján is be lehet jelenteni, ami akkor minősül jogszerűen bejelentettnek, ha azt a foglalkoztató a tényleges foglalkoztatás kezdetét megelőzően teszi meg. A bejelentést követő 2 órán belül van lehetőség a bejelentés módosítására vagy visszavonására. 2. Ha a korábban benyújtott bejelentésben foglaltak szerint a foglalkoztatás a bejelentés napját követő napon kezdődött, vagy ha a bejelentés egy napnál hosszabb időtartamú munkaviszonyra vonatkozott, akkor az EFO bejelentés módosításával kapcsolatos adatokat a foglalkoztatás napján 9:00 óráig kell a foglalkoztatónak bejelenteni abban az esetben, ha korábban bejelentett foglalkoztatást (kezdetet/jelleget/munkanapok számát) módosít, töröl vagy visszavon. Ezt követően - jogszabályban megfogalmazott esetek kivételével - adatjavítás csak a foglalkoztató azonosító adataiban végezhető. 3. A már eltelt/ledolgozott munkanapok nem törölhetők visszamenőlegesen. Törlés esetén a beérkezés időpontja alapján a "hátralévő" napok törölhetők. Ebben az esetben a 9:00 órás időpontot figyelembe kell venni. ¦ Az adatbejelentés jellege: (P23_jelleg)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0BXXXXD0006AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ A korábbi bejelentés nyilvántartási- vagy regisztrációs száma: (P23_korábbi_reg_szám)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0BXXXXD0007AA"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ Igazolási kérelemmel benyújtott bejelentés: (P23_ig_kérelem)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0BXXXXD0008AA"
+                  minOccurs="0"
+                  type="tns:Enum_T1042E_0BXXXXD0008AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ A foglalkoztatás jellege: (P23_fogl_jelleg)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0BXXXXD0009AA"
+                  minOccurs="0"
+                  type="xs:date"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ A foglalkoztatás kezdete: (az Efo. tv. 11. § (7) bekezdésének b) pontja alapján) (P23_fogl_kezdet)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0BXXXXD0010AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>AZ EGYSZERŰSÍTETT FOGLALKOZTATÁS ADATAI ¦ A munkaviszony napjainak száma: (P23_napok_száma)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="3"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+</schema>
